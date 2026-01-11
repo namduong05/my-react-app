@@ -1,16 +1,12 @@
 import { useCallback } from "react";
 import type { Product } from "../types";
-import { useCart } from "./useCart";
+import { useCartDispatch } from "./useCartDispatch";
 
 export const useAction = () => {
-  const { dispatch } = useCart();
+  const dispatch = useCartDispatch();
 
   const handleAddToCart = useCallback((product: Product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
-  }, []);
-
-  const handleIncrease = useCallback((id: number) => {
-    dispatch({ type: "INCREASE", payload: id });
   }, []);
 
   const handleDecrease = useCallback((id: number) => {
@@ -27,7 +23,6 @@ export const useAction = () => {
 
   return {
     handleAddToCart,
-    handleIncrease,
     handleDecrease,
     handleRemoveFromCart,
     handleClearAll,

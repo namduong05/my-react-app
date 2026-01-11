@@ -1,10 +1,10 @@
 import React from "react";
 import CartItem from "./components/CartItem";
 import { useAction } from "./hooks/useAction";
-import { useCart } from "./hooks/useCart";
+import { useCartState } from "./hooks/useCartState";
 
 const Carts = () => {
-  const { cart } = useCart();
+  const cart = useCartState();
 
   console.log("render Carts");
 

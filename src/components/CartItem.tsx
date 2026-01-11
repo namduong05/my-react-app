@@ -3,7 +3,7 @@ import type { Cart } from "../types";
 import { useAction } from "../hooks/useAction";
 
 const CartItem = ({ item }: { item: Cart }) => {
-  const { handleIncrease, handleDecrease, handleRemoveFromCart } = useAction();
+  const { handleAddToCart, handleDecrease, handleRemoveFromCart } = useAction();
   return (
     <li
       key={item.id}
@@ -26,7 +26,7 @@ const CartItem = ({ item }: { item: Cart }) => {
               {item.quantity}
             </span>
             <button
-              onClick={() => handleIncrease(item.id)}
+              onClick={() => handleAddToCart(item)}
               className="border border-gray-300 bg-gray-200 px-2"
             >
               +

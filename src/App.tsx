@@ -15,7 +15,7 @@ const App = () => {
         className="bg-blue-500 text-white mb-2 rounded-xl p-2 "
         onClick={() => setTheme(theme === "black" ? "white" : "black")}
       >
-        Toggle theme
+        Toggle theme({theme})
       </button>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <Products products={products} />

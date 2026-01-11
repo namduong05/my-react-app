@@ -10,7 +10,6 @@ export interface Cart extends Product {
 
 export type CartAction =
   | { type: "ADD_TO_CART"; payload: Product }
-  | { type: "INCREASE"; payload: number }
   | { type: "DECREASE"; payload: number }
   | { type: "REMOVE"; payload: number }
   | { type: "CLEAR" };
