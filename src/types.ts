@@ -4,12 +4,13 @@ export interface Product {
   price: number;
 }
 
-export interface CartItem extends Product {
+export interface Cart extends Product {
   quantity: number;
 }
 
 export type CartAction =
   | { type: "ADD_TO_CART"; payload: Product }
+  | { type: "INCREASE"; payload: number }
   | { type: "DECREASE"; payload: number }
   | { type: "REMOVE"; payload: number }
   | { type: "CLEAR" };
