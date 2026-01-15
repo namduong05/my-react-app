@@ -1,9 +1,10 @@
 import React from "react";
 import type { Cart } from "../types";
-import { useAction } from "../hooks/useAction";
+import { useActionCart } from "../hooks/useActionCart";
 
 const CartItem = ({ item }: { item: Cart }) => {
-  const { handleAddToCart, handleDecrease, handleRemoveFromCart } = useAction();
+  const { handleAddToCart, handleDecrease, handleRemoveFromCart } =
+    useActionCart();
   return (
     <li
       key={item.id}

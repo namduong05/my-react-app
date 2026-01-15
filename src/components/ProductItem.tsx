@@ -1,9 +1,9 @@
 import React from "react";
 import type { Product } from "../types";
-import { useAction } from "../hooks/useAction";
+import { useActionCart } from "../hooks/useActionCart";
 
 const ProductItem = ({ product }: { product: Product }) => {
-  const { handleAddToCart } = useAction();
+  const { handleAddToCart } = useActionCart();
   return (
     <li
       key={product.id}

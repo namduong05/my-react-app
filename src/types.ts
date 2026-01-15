@@ -1,5 +1,5 @@
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   price: number;
 }
@@ -10,6 +10,11 @@ export interface Cart extends Product {
 
 export type CartAction =
   | { type: "ADD_TO_CART"; payload: Product }
-  | { type: "DECREASE"; payload: number }
-  | { type: "REMOVE"; payload: number }
+  | { type: "DECREASE"; payload: string }
+  | { type: "REMOVE"; payload: string }
   | { type: "CLEAR" };
+
+export type ProductAction =
+  | { type: "ADD_PRODUCT"; payload: Product }
+  | { type: "EDIT_PRODUCT"; payload: Product }
+  | { type: "DELETE_PRODUCT"; payload: string };

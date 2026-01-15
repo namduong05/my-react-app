@@ -1,13 +1,15 @@
 import React from "react";
 import ProductItem from "./components/ProductItem";
-import type { Product } from "./types";
+import { useProductState } from "./hooks/useProducts";
 
-const Products = ({ products }: { products: Product[] }) => {
+const ProductList = () => {
+  const products = useProductState();
   console.log("render Products");
 
   return (
     <>
       <ul className="grid grid-cols-1 md:grid-cols-2 md:col-span-2 gap-8">
+        {products.length === 0 && <span>Không có sản phẩm...</span>}
         {products.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
@@ -16,4 +18,4 @@ const Products = ({ products }: { products: Product[] }) => {
   );
 };
 
-export default React.memo(Products);
+export default React.memo(ProductList);

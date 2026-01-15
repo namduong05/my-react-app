@@ -1,14 +1,14 @@
 import React from "react";
 import CartItem from "./components/CartItem";
-import { useAction } from "./hooks/useAction";
-import { useCartState } from "./hooks/useCartState";
+import { useActionCart } from "./hooks/useActionCart";
+import { useCartState } from "./hooks/useCarts";
 
 const Carts = () => {
   const cart = useCartState();
 
   console.log("render Carts");
 
-  const { handleClearAll } = useAction();
+  const { handleClearAll } = useActionCart();
   const totalQuantity = React.useMemo(() => {
     return cart.reduce((result, item) => result + item.quantity, 0);
   }, [cart]);

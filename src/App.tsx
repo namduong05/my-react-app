@@ -1,27 +1,33 @@
-import { products } from "./data/products";
-import "./App.css";
-import Carts from "./Cart";
-import Products from "./Product";
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import AdminLayout from "./layouts/AdminLayout";
+import ProductFormPage from "./pages/ProductFormPage";
+import DashboardPage from "./pages/DashboardPage";
+import ShopPage from "./pages/ShopPage";
+import ProductListPage from "./pages/ProductListPage";
 
 const App = () => {
-  const [theme, setTheme] = useState("white");
-  console.log("render App");
-
   return (
-    <div className={`container mx-auto px-8 bg-${theme}`}>
-      <h1 className="text-2xl text-center my-3">Cửa hàng văn phòng phẩm</h1>
-      <button
-        className="bg-blue-500 text-white mb-2 rounded-xl p-2 "
-        onClick={() => setTheme(theme === "black" ? "white" : "black")}
-      >
-        Toggle theme({theme})
-      </button>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Products products={products} />
-        <Carts />
-      </div>
-    </div>
+    <BrowserRouter>
+      <nav className="p-4 bg-gray-800 text-white flex gap-4 justify-center fixed z-10 top-0 left-0 right-0">
+        <Link to="/" className="hover:text-yellow-400">
+          Trang chủ (Shop)
+        </Link>
+        <Link to="/admin/products" className="hover:text-yellow-400">
+          Quản trị (Admin)
+        </Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<ShopPage />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="products" element={<ProductListPage />} />
+          <Route path="products/add" element={<ProductFormPage />} />
+          <Route path="products/edit/:id" element={<ProductFormPage />} />
+        </Route>
+
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
