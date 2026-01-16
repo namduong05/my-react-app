@@ -28,6 +28,24 @@ export const cartReducer = (state: Cart[], action: CartAction): Cart[] => {
       );
     case "REMOVE":
       return state.filter((item) => item.id !== action.payload);
+    case "REFRESH_CART":
+      const latestProducts = action.payload;
+      //1. Xóa các sản phẩm bị xóa
+      const lastItems = state.filter((item) =>
+        latestProducts.some((p) => p.id === item.id)
+      );
+      //2.  Cập nhật tên và giá
+      return lastItems.map((item) => {
+        const currCartItem = latestProducts.find((p) => p.id === item.id);
+        if (currCartItem) {
+          return {
+            ...item,
+            name: currCartItem?.name,
+            price: currCartItem?.price,
+          };
+        }
+        return item;
+      });
     case "CLEAR":
       return [];
     default:

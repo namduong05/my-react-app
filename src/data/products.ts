@@ -2,7 +2,7 @@ import { type Product } from "../types";
 
 const generateProducts = () => {
   const items = [];
-  for (let i = 1; i <= 5000; i++) {
+  for (let i = 1; i <= 2000; i++) {
     items.push({
       id: crypto.randomUUID(),
       name: ` Sản phẩm ${i}`,

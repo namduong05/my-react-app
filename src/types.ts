@@ -12,6 +12,7 @@ export type CartAction =
   | { type: "ADD_TO_CART"; payload: Product }
   | { type: "DECREASE"; payload: string }
   | { type: "REMOVE"; payload: string }
+  | { type: "REFRESH_CART"; payload: Product[] }
   | { type: "CLEAR" };
 
 export type ProductAction =

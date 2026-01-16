@@ -20,7 +20,7 @@ const Carts = () => {
   }, [cart]);
   return (
     <div className="md:col-span-1">
-      <div className="border border-gray-200 rounded-xl shawdow-xl px-4 py-2 sticky top-5">
+      <div className="border border-gray-200 rounded-xl shawdow-xl px-4 py-2 sticky top-14">
         <h2 className="mb-2 flex justify-between">
           Giỏ hàng{" "}
           <span className="text-sm bg-red-500 text-white px-2 py-1 rounded-full">
